@@ -1577,7 +1577,7 @@
 	<div class="figure" style="height: 400px; background-image: url(figures/pipeline.jpg); margin-top: -30px;"></div>
 	<div style="margin: auto; margin-top: -10px" align="center">
 		<p style="text-align: center; color:#4a4a4a; font-weight: 400;">
-    The upper half is the whole pipeline of our framework. The lower half is an example of how our planner will update the proposed plan during the robot's execution.
+      The upper half is the whole pipeline of our framework. The lower half is an example of how our planner will update the proposed plan during the robot's execution.
     
 		</p>
 	</div>
@@ -1587,7 +1587,8 @@
 	<div class="figure" style="height: 400px; background-image: url(figures/policy.jpg); margin-top: -30px;"></div>
 	<div style="margin: auto; margin-top: -10px" align="center">
 		<p style="text-align: center; color:#4a4a4a; font-weight: 400;">
-      The diagram of the proposed low-level 3D policy.
+      Overview of low-level 3D policy. The visual input is point clouds processed by a PointNext encoder and subsequently fused with 3D feature fields through a lightweight MLP to learn a semantic-aware 3D representation. 
+      LMM-3DP sample a set of query points to attend to the learned 3D representation and language embeddings through a 3D transformer for predicting keyframe actions. A learnable query token is introduced to efficiently localize the next best point position.
     
 		</p>
 	</div>
@@ -1599,16 +1600,13 @@
 		<h2>Abstract</h2>
 		<p class="abstract">
 			
-      In this work, we introduce <span style="color: rgb(118, 181, 217);font-weight: bolder;">LMM-3DP</span> , an LMM-powered robotic manipulation framework that integrates LMMs as high-level planners to generate a sequence of language plans and a language-conditioned 3D policy to follow language instructions and execute low-level actions. 
-      For high-level planning, LMM-3DP consists of three key components: 
-      1) An interactive planning framework with visual feedback for rapid adaptation to the dynamic real-world environment, 
-      2) A continually self-improved framework with a memory module to store history experience and a critic agent to provide reflection for the planner to improve planning accuracy and consistency, 
-      3) A skill library with lifelong learning, updated with newly acquired skills learned by a low-level 3D policy. 
-      <br>
-      <br>
-     For low-level control, we propose a language-conditioned 3D policy that learns multiple generalizable skills with only a few demonstrations for accurate execution. 
-      To tackle complex environments with various objects and intricate 3D structures, we learn a unified 3D and semantic representation from a vision foundation model and point-based encoder. 
-      We evaluate LMM-3DP on various skill-composition and long-horizon tasks in a real-world kitchen environment. LMM-3DP demonstrate...
+      The recent advancements in visual reasoning capabilities of large multimodal models (LMMs) and the semantic enrichment of 3D feature fields have expanded the horizons of robotic capabilities. These developments hold significant potential for bridging the gap between high-level reasoning from LMMs and low-level control policies utilizing 3D feature fields. 
+      In this work, we introduce <span style="color: rgb(118, 181, 217);font-weight: bolder;">LMM-3DP</span>, a framework that can integrate <b>LMM</b> planners and <b>3D</b> skill <b>P</b>olicies. 
+      Our approach consists of three key perspectives: high-level planning, low-level control, and effective integration. 
+      <b>For high-level planning</b>, LMM-3DP supports dynamic scene understanding for environment disturbances, a critic agent with self-feedback, history policy memorization, and reattempts after failures. 
+      <b>For low-level control</b>, LMM-3DP utilizes a semantic-aware 3D feature field for accurate manipulation. 
+      In aligning high-level and low-level control for robot actions, language embeddings representing the high-level policy are jointly attended with the 3D feature field in the 3D transformer for seamless integration. 
+      We extensively evaluate our approach across multiple skills and long-horizon tasks in a real-world kitchen environment. Our results show a significant <b>1.45x</b> success rate increase in low-level control and an approximate <b>1.85x</b> improvement in high-level planning accuracy compared to LLM-based baselines.
 		</p>
 	</div>
 
