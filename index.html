@@ -1545,8 +1545,6 @@
   <link rel="icon" href="figures/white_robot.jpg">
 	<link rel="stylesheet" href="./files/font-awesome.min.css">
 
- 
-  
 </head>
 <body data-new-gr-c-s-check-loaded="14.1102.0" data-gr-ext-installed=""><div class="header" id="top">
 	<h1>
@@ -1571,21 +1569,20 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
+<!-- </div> -->
 
 <div class="content">
-	<div class="figure" style="height: 400px; background-image: url(figures/pipeline.jpg); margin-top: -30px;"></div>
-	<div style="margin: auto; margin-top: -10px;font-family:SofiaPro;" align="center;>
-		<p style="text-align: center; color:#4a4a4a; font-weight: 400;">
+	<div class="figure" style="height: 400px; background-image: url(figures/pipeline.jpg);"></div>
+	<div style="margin: auto; margin-top: -10px;font-family:SofiaPro; text-align: center;"></div>
+		<p style="color:#4a4a4a; font-weight: 400; margin: 100;">
       The upper half is the whole pipeline of our framework. The lower half is an example of how our planner will update the proposed plan during the robot's execution.
-    
 		</p>
-	</div>
+  </div>
 </div>
 
 <div class="content">
-	<div class="figure" style="height: 400px; background-image: url(figures/policy.jpg); margin-top: -30px;"></div>
-	<div style="margin: auto; margin-top: -10px; font-family:SofiaPro;" align="center;>
+	<div class="figure" style="height: 400px; background-image: url(figures/policy.jpg);"></div>
+	<div style="margin: auto; margin-top: -10px; font-family:SofiaPro;">
 		<p style="text-align: center; color:#4a4a4a; font-weight: 400;">
       Overview of low-level 3D policy. The visual input is point clouds processed by a PointNext encoder and subsequently fused with 3D feature fields through a lightweight MLP to learn a semantic-aware 3D representation. 
       LMM-3DP sample a set of query points to attend to the learned 3D representation and language embeddings through a 3D transformer for predicting keyframe actions. A learnable query token is introduced to efficiently localize the next best point position.
@@ -1648,7 +1645,7 @@
             font-size: 0.9rem;
         }
         video {
-            width: 80%;
+            width: 100%;
             height: auto;
             display: block;
             margin-left: auto;
@@ -1657,8 +1654,8 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -300pt;">
-        <div class="content">
+    <div class="container">
+        <div class="content" >
             <div class="figure">
                 <video autoplay muted loop controls>
                     <source src="edited_videos/pan_to_sink+faucet.mov" type="video/mp4">
@@ -1707,7 +1704,7 @@
             font-size: 0.9rem;
         }
         video {
-            width: 80%;
+            width: 100%;
             height: auto;
             display: block;
             margin-left: auto;
@@ -1716,7 +1713,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -200pt;">
+    <div class="container" style="clear: both; margin-top: 20px; margin-bottom: 20px; overflow: hidden;">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls>
@@ -1867,7 +1864,7 @@
         
         }
         video {
-            width: 80%;
+            width: 100%;
             height: auto;
             display: block;
             margin-left: auto;
@@ -1876,7 +1873,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -200pt;">
+    <div class="container" style="clear: both; margin-top: 20px; margin-bottom: 20px; overflow: hidden;">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
@@ -1945,7 +1942,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -300pt;">
+    <div class="container" style="">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
@@ -2024,7 +2021,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -300pt;">
+    <div class="container" style="">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
@@ -2083,7 +2080,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -300pt;">
+    <div class="container" style="">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
@@ -2143,7 +2140,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -300pt;">
+    <div class="container" style="">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
@@ -2175,6 +2172,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Side by Side Videos</title>
     <style>
+      body {
+        overflow-y: hidden !important;
+      }
+      body * {
+        font-family: SofiaPro !important;
+        overflow-x: hidden !important;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
         .container {
             display: flex;
             justify-content: space-around;
@@ -2204,7 +2212,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -300pt;">
+    <div class="container" style="">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
@@ -2235,14 +2243,15 @@
     <title>Side by Side Videos</title>
     <style>
         .container {
-            display: flex;
+            /* display: flex;
             justify-content: space-around;
-            align-items: flex-start;
+            align-items: flex-start; */
+            width: 100vw;
             height: 100vh;
         }
         .content {
             flex: 1;
-            margin: 10px;
+            margin: 10px auto;
             text-align: center;
         }
         .figure {
@@ -2263,7 +2272,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="margin-bottom: -300pt;">
+    <div class="container" style="">
         <div class="content">
             <div class="figure">
                 <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
@@ -2285,6 +2294,7 @@
     </div>
 </body>
 </html>
+
 
 
 <!-- <video id="myVideo" width="320" height="240" controls>
