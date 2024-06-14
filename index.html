@@ -1575,7 +1575,7 @@
 
 <div class="content">
 	<div class="figure" style="height: 400px; background-image: url(figures/pipeline.jpg); margin-top: -30px;"></div>
-	<div style="margin: auto; margin-top: -10px" align="center">
+	<div style="margin: auto; margin-top: -10px;font-family:SofiaPro;" align="center;>
 		<p style="text-align: center; color:#4a4a4a; font-weight: 400;">
       The upper half is the whole pipeline of our framework. The lower half is an example of how our planner will update the proposed plan during the robot's execution.
     
@@ -1585,7 +1585,7 @@
 
 <div class="content">
 	<div class="figure" style="height: 400px; background-image: url(figures/policy.jpg); margin-top: -30px;"></div>
-	<div style="margin: auto; margin-top: -10px" align="center">
+	<div style="margin: auto; margin-top: -10px; font-family:SofiaPro;" align="center;>
 		<p style="text-align: center; color:#4a4a4a; font-weight: 400;">
       Overview of low-level 3D policy. The visual input is point clouds processed by a PointNext encoder and subsequently fused with 3D feature fields through a lightweight MLP to learn a semantic-aware 3D representation. 
       LMM-3DP sample a set of query points to attend to the learned 3D representation and language embeddings through a 3D transformer for predicting keyframe actions. A learnable query token is introduced to efficiently localize the next best point position.
@@ -1598,7 +1598,7 @@
 <div class="content">
 	<div>
 		<h2>Abstract</h2>
-		<p class="abstract">
+		<p class="abstract" style="margin-bottom: +50pt; font-family:SofiaPro;" >
 			
       The recent advancements in visual reasoning capabilities of large multimodal models (LMMs) and the semantic enrichment of 3D feature fields have expanded the horizons of robotic capabilities. These developments hold significant potential for bridging the gap between high-level reasoning from LMMs and low-level control policies utilizing 3D feature fields. 
       In this work, we introduce <span style="color: rgb(118, 181, 217);font-weight: bolder;">LMM-3DP</span>, a framework that can integrate <b>LMM</b> planners and <b>3D</b> skill <b>P</b>olicies. 
@@ -1611,47 +1611,752 @@
 	</div>
 
 
-<div class="content">
-	<div class="figure" style="height: 550px; margin-top: -10px;">
-    <h3><b>Human instruction:<b> Can you help me put the duck into the drawer and close the drawer doors</h3>
-    <video width="80%" height="80%" autoplay="" muted="" loop="" style="display: block; margin-left: auto; margin-right: auto;">
-        <source src="videos/duck_to_drawer.mp4" type="video/mp4">
-    </video>
+
+<div>
+  <h3 style="font-family:SofiaPro;">Long Horizon Tasks (Skills > 3)</h3>
+  <p class="abstract" style="font-family:SofiaPro;">
+    <span style="color: rgb(118, 181, 217);font-weight: bolder;">LMM-3DP</span> is able to perform long horizon tasks
+    with different skills. Here are examples where <span style="color: rgb(118, 181, 217);font-weight: bolder;">LMM-3DP</span>
+    composes >= 3 skills to achieve the task.
+  </p>
 </div>
 
-<div class="content">
-	<div class="figure" style="height: 550px; margin-top: -10px;">
-    <h3><b>Human instruction:<b> Please put all the fruits on the kitchen table to the sink</h3>
-    <video width="80%" height="80%" autoplay="" muted="" loop="" style="display: block; margin-left: auto; margin-right: auto;">
-        <source src="videos/fruits_to_sink.mp4" type="video/mp4">
-    </video>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Grid of Videos</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+            padding: 10px;
+        }
+        .content {
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -300pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls>
+                    <source src="edited_videos/pan_to_sink+faucet.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Place pan in the sink + turn faucet.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls>
+                    <source src="edited_videos/human_pineapple_to_drawer.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Place the pineapple to thedrawer iteratively untill success.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2x2 Grid of Videos</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+            padding: 10px;
+        }
+        .content {
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -200pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls>
+                    <source src="edited_videos/duck_to_drawer+close_drawers.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Put duck to the drawer + close 2 drawer doors.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls>
+                    <source src="edited_videos/human_2fruits_to_sink.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Place two fruits in the sink in sequence.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        
+        <div id="slider56b14c86-0b9d-4fff-8a02-fa60e122487e" class="slider" tabindex="0">
+  <div class="slider-container" style="opacity: 1; width: 5440px; transition: none 0s ease 0s; transform: translate3d(-1280px, 0px, 0px);"><div class="slider-item" data-slider-index="-4" data-cloned="true" style="width: 320px;"><div class="item item-steve">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/pineapple_to_drawer.mov" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="-3" data-cloned="true" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/pineapple_to_drawer.mov" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="-2" data-cloned="true" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/pineapple_to_drawer.mov" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="-1" data-cloned="true" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/pineapple_to_drawer.mov" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item is-current" data-slider-index="0" style="width: 320px;"><div class="item item-steve">
+          <video poster="" id="steve" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/pineapple_to_drawer.mov" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item is-slide-previous is-slide-next" data-slider-index="1" style="width: 320px;"><div class="item item-steve">
+          <video poster="" id="steve" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/pineapple_to_drawer.mov" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="2" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/hit_ball.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="3" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/Put_in_bowl.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="4" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/put_in_bin.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="5" data-cloned="true" style="width: 320px;"><div class="item item-steve">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/Stack_block.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="6" data-cloned="true" style="width: 320px;"><div class="item item-steve">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/sweep_dustpan.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="7" data-cloned="true" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/hit_ball.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="8" data-cloned="true" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/Put_in_bowl.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="9" data-cloned="true" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/put_in_bin.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="10" data-cloned="true" style="width: 320px;"><div class="item item-steve">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/Stack_block.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="11" data-cloned="true" style="width: 320px;"><div class="item item-steve">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/sweep_dustpan.mp4" type="video/mp4">
+          </video>
+        </div></div><div class="slider-item" data-slider-index="12" data-cloned="true" style="width: 320px;"><div class="item item-fullbody">
+          <video poster="" id="" autoplay="" muted="" loop="" height="100%">
+            <source src="videos/hit_ball.mp4" type="video/mp4">
+          </video>
+        </div></div></div>
+<div class="slider-navigation-previous"><svg viewBox="0 0 50 80" xml:space="preserve">
+    <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+  </svg></div>
+<div class="slider-navigation-next"><svg viewBox="0 0 50 80" xml:space="preserve">
+    <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+  </svg></div><div class="slider-pagination"><div class="slider-page" data-index="0"></div><div class="slider-page" data-index="1"></div><div class="slider-page" data-index="2"></div><div class="slider-page" data-index="3"></div><div class="slider-page" data-index="4"></div></div></div></div>
+      </div>
+    </div>
+</section> -->
+
+
+<div>
+  <h3 style="font-family:SofiaPro;">Retry Failed Attempts</h3>
+  <p class="abstract" style="font-family:SofiaPro;">
+    With the visual feedback and the critic agent, <span style="color: #76b5d9;font-weight: bolder;">LMM-3DP</span> can 
+    update the proposed plan during the robot's execution. It can retry previous failed attempts until success.
+  </p>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side by Side Videos</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .content {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+            margin-top: -10px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }.contextimg                       
+        {
+            position:relative;
+            margin:0px;
+            padding:0px;
+            line-height:0px;
+        
+        }
+        video {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -200pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="edited_videos/retry_close_drawers.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Retry on close drawer.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="edited_videos/retry_faucet.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Retry on turn faucet.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<div>
+  <h3 style="font-family:SofiaPro;">Human Intervention</h3>
+  <p class="abstract" style="font-family:SofiaPro;">
+    With the visual feedback and the critic agent, <span style="color: rgb(118, 181, 217);font-weight: bolder;">LMM-3DP</span> can 
+    update the proposed plan during the robot's execution, when there's a human intervention that changes the environment.
+  </p>
 </div>
 
-<div class="content">
-	<div class="figure" style="height: 550px; margin-top: -10px;">
-    <h3><b>Human instruction:<b> I want to wash the gray pan, Can you help me with that?</h3>
-    <video width="80%" height="80%" autoplay="" muted="" loop="" style="display: block; margin-left: auto; margin-right: auto;">
-        <source src="videos/pan_to_sink_faucet.MOV" type="video/mp4">
-    </video>
-</div>
 
-<div class="content">
-	<div class="figure" style="height: 550px; margin-top: -10px;">
-    <h3><b>Human instruction: Can you help me close all the drawers that are open?<b> </h3>
-    <video width="80%" height="80%" autoplay="" muted="" loop="" style="display: block; margin-left: auto; margin-right: auto;">
-        <source src="videos/close_drawer.MP4" type="video/mp4">
-    </video>
-</div>
 
-<div class="content">
-	<div class="figure" style="height: 550px; margin-top: -10px;">
-    <h3>Human instruction: Can you help me turn the faucet to the center of the sink?</h3>
-    <video width="80%" height="80%" autoplay="" muted="" loop="" style="display: block; margin-left: auto; margin-right: auto;">
-        <source src="videos/faucet_retry.MP4" type="video/mp4">
-    </video>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side by Side Videos</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .content {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+            margin-top: -10px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -300pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="edited_videos/human_2fruits_to_sink.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Human put an additional starfruit on the table.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="edited_videos/human_close_drawer.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Human help close a drawer door.</b></div>
+            </div>
+        </div>
+        <div class="content">
+          <div class="figure">
+              <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                  <source src="edited_videos/human_pineapple_to_drawer.mov" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+              <div class="subtitle"><b>Human place the pineapple back on the table to trick the robot.</b></div>
+          </div>
+      </div>
+    </div>
+</body>
+</html>
+
+<div>
+  <h3 style="font-family:SofiaPro;">Task Composition</h3>
+  <p class="abstract" style="font-family:SofiaPro;">
+    To successfully compose different skills in sequence, 
+    it is essential to demonstrate that these skills are disentangled so that the execution of one skill does not impact the subsequent skills. 
+    Our focus is on pick and place operations, as they are highly interrelated. 
+    For instance, after training the model on the tasks of putting object A to location B, 
+    and putting object C to location D, the model should also be capable of putting C to B. 
+    We randomly combine two locations and five objects.
+  </p>
 </div>
-  
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side by Side Videos</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .content {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+            margin-top: -10px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -300pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/milk_to_drawer.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Milk to drawer.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/milk_to_sink.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Milk to sink.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side by Side Videos</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .content {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+            margin-top: -10px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -300pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/starfruit_to_drawer.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Starfruit to drawer.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/starfruit_to_sink.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Starfruit to sink.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side by Side Videos</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .content {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+            margin-top: -10px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -300pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/pineapple_to_drawer.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Pineapple to drawer.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/pineapple_to_sink.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Pineapple to sink.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side by Side Videos</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .content {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+            margin-top: -10px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -300pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/duck_to_drawer.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Duck to drawer.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/duck_to_sink.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Duck to sink.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side by Side Videos</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .content {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .figure {
+            height: 550px;
+            margin-top: -10px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-bottom: -300pt;">
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/pan_to_drawer.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Pan to drawer.</b></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="figure">
+                <video autoplay muted loop controls style="display: block; margin-left: auto; margin-right: auto;">
+                    <source src="videos/pan_to_sink.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="subtitle"><b>Pan to sink.</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- <video id="myVideo" width="320" height="240" controls>
+  <source src="videos/duck_to_drawer.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+ 
+<button onclick="playNextVideo()">播放下一个视频</button>
+
+
+<h3>Retry upon failed attemps</h3>
+
+<script>
+function playNextVideo() {
+  var video = document.getElementById("myVideo");
+  var currentSrc = video.currentSrc;
+  var nextVideoSrc = getNextVideoSrc(currentSrc);
+
+  video.src = nextVideoSrc;
+  video.load();
+  video.play();
+}
+ 
+function getNextVideoSrc(currentSrc) {
+  // 这里假设所有视频文件都在同一个文件夹中，并且有相同的扩展名
+  var videoFolder = "videos/";
+  var videoExtension = ".mp4";
+  var videoFiles = ["duck_to_drawer.mov", "mmilk_to_drawer.mov"]; // 所有视频文件列表
+ 
+  var currentIndex = videoFiles.indexOf(currentSrc.split(videoFolder)[1]);
+  var nextIndex = (currentIndex + 1) % videoFiles.length;
+ 
+  return videoFolder + videoFiles[nextIndex];
+}
+</script>
+
+
+
+
+
+<body>
+ 
+  <video id="myVideo" width="320" height="240" controls>
+    <source src="videos/duck_to_drawer.mov" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+   
+  <button onclick="playPause()">播放/暂停</button>
+   
+  <script>
+  var myVideo = document.getElementById("myVideo");
+   
+  function playPause() {
+    if (myVideo.paused) {
+      myVideo.play();
+    } else {
+      myVideo.pause();
+    }
+  }
+  </script>
+
+
+
+  <video width="300" height="200" controls>
+    <source src="videos/duck_to_drawer.mov" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+ -->
+
+
+
+
 
 <div class="content"></div>
 
